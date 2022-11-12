@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 타입에 상관없이 사용 가능한 속성 
+        name, id
+    1. value : 사용자가 입력한 값을 저장하는 공간(속성), 반대로 값을 입력하여 웹페이지로 표현 가능
+    2. readonly : 읽기전용으로 만들어주는 속성으로 속성값이 없는게 특징이다.
+    3. disabled : readonly처럼 읽기전용이며, 약간 흐릿하게 표현된다
+        2, 3의 차이점 : form태그로 묶고 submit속성값의 버튼을 만들어 form태그에 설정된 주소로 입력값을 보내면
+                         readonly의 value 값은 전송이 되지만 disabled의 value값은 전송이 되지 않는다
+    4. maxlength : 최대 글자수 제한
+    5. placeholder : 입력값 가이드(입력창 클릭 시 사라짐)
+
+    6. required : form태그 내에서만 사용할 수 있고 필수 입력란이다.(공백으로 저장을 클릭하면 오류메세지가 나온다)
+    
+    7. autofocus="on" : 사용자가 입장 후 처음 할 행동에 커서가 미리 가 있는 속성으로
+                        로그인 화면으로 들어왔을 시 로그인 입력창에 미리 커서가 가서 클릭을 따로 하지 않아도
+                        바로 아이디를 입력 할 수 있는 속성
+
+    8. autocomplete="on" : 사용자가 입력했던 값을 사이트에 상관없이 동일한 name속성의 값을 가진 입력값을 나타나게 한다.
+                            name 속성이 email 값인 입력칸을 클릭시 사이트 상관없이 name이 email인 입력창에 입력한 값들을 추천한다.
+
+                            autocomplete을 위해 사용되는 표준 name값
+                            name : 사람 전체의 이름
+                            email : 이메일 주소
+                            username : 사용자 아이디
+                            new-password : 새로운 비밀번호
+                            current-password : 사용자의 현재 비밀번호
+                            one-time-code : 사용자를 인증할 때 사용하는 1회성 코드
+
+                            organization-title : 직위
+                            organization : 회사 또는 조직명
+                            country : 국가 코드
+                            country-name : 국가 이름
+                            postal-code : 우편번호
+                            address-level1 : 첫번째 행정구역 -> 한국의 틀별시/광역시/도
+                            address-level2 : 두번째 행정구역 -> 한국의 시/구
+                            address-level3 : 세번째 행정구역
+                            address-level4 : 네번째 행정구역
+                            street-address : 도로 주소
+
+                            cc-name : 신용카드 등 지불수단 소유자의 전체이름
+                            cc-family-name : 신용카드 등 지불수단 소유자의 성
+                            cc-given-name : 신용카드 등 지불수단 소유자의 이름
+                            cc-number : 신용카드 번호, 계좌번호 등 지불수단 식별번호
+                            cc-exp : 지불수단 유효기간, 일반적으로 MM/YY 또는 MM/YYYY
+                            cc-exp-month : 지불수단 유효기간의 월
+                            cc-exp-year : 지불수단 유효기간의 년도
+                            cc-csc : 지불 수단 보안 코드, 신용카드의 뒷면의 세자리 => 보안상 실무에는 사용하지 않는게 좋다
+                            cc-type : 지불수단 유형
+                            transaction-currency : 거래에 사용할 통화 단위
+                            transaction-amount : 결제 금액
+
+                            language : 선호 언어
+                            bday : 생년월일
+                            bday-day : 생년월일에서 일
+                            bday-month
+                            bday-year
+                            sex : 성별
+                            tel : 국가 코드를 포함한 전체 전화번호
+                            tel-national : 전체 전화번호에서 국가 코드를 제외한 나머지 전화번호
+                            tel-area-code : 지역번호
+                            tel-local : 국가코드와 지역번호를 제외한 전화번호
+                            url : 웹사이트 주소
+
+-->
+    <div>
+      <input type="text" name="" id="" value="abc" />
+    </div>
+    <div>
+      <input type="text" name="" id="" value="abcd" readonly />
+    </div>
+    <div>
+      <input type="text" name="" id="" value="abv" disabled />
+    </div>
+    <form action="">
+      <div>
+        <input type="text" name="" id="" value="abc" />
+      </div>
+      <div>
+        <input type="text" name="" id="" value="abcd" readonly />
+      </div>
+      <div>
+        <input type="text" name="" id="" value="abv" disabled />
+      </div>
+      <button type="submit"></button>
+    </form>
+    <div>
+      <input type="text" name="" id="" maxlength="4" />
+    </div>
+    <div>
+      <input
+        type="tel"
+        name=""
+        id=""
+        placeholder="하이폰(-) ㅇ없이 숫자만 입력하세요. 예)010101"
+      />
+    </div>
+
+    <form action="">
+      <label for="userid">아이디</label>
+      <input
+        type="text"
+        name="username"
+        id="userid"
+        required
+        autocomplete="on"
+        autofocus="on"
+      />
+      <label for="userid">비밀번호</label>
+      <input type="password" name="" id="userps" required />
+      <button type="submit">저장</button>
+    </form>
+
+    <div>
+      <input type="text" name="email" id="" autocomplete="on" />
+    </div>
+    <div>
+      <input type="text" name="phone" id="" autocomplete="on" />
+    </div>
+  </body>
+</html>

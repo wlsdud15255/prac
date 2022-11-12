@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- form 요소
+    1. 사용자로 부터 데이터(정보)를 입력 받기 위한 HTML 요소들
+    2. 동등한 정보나 같은 정보를 한번에 묶어주기 위해 form태그를 사용하고
+    3. 그 안에 사용자로 부터 받는 정보를 form 요소를 채워준다.
+    4. form 태그의 action 속성을 이용하여 form태그 내의 입력된 정보를 서버로 전송하는 기능을 넣는다.
+    (form 태그로 감싸는 이유 - 동등한 정보를 한번에 보내기 위해)
+
+    => 최근들어 forml 태그를 사용하지 않고 전송하는 프레임워크 기술이 있어 프레임워크를 이용 시 잘 쓰지 않는다.
+    -->
+
+    <!-- 
+        input : type 속성에 따라 사용자로 부터 입력받는 유형이 달라진다
+                    속성값 : text, email, password(값을 입력 시 자동적으로 가려진다!!!)
+                            checkbox, radio, color, date, datetime-local, file, hidden, image
+                            yearmonth, number, tel, time, submit, week, search
+     -->
+    <form action="">
+      <div>
+        <label for="email">이메일</label>
+        <input type="email" id="email" />
+      </div>
+      <div>
+        <label for="pw">비밀번호</label>
+        <input type="password" id="pw" />
+      </div>
+      <div>
+        <button>로그인</button>
+      </div>
+    </form>
+    <!-- 
+    다중 선택 시 체크박스 이용!!
+    체크박스 이용 시 id값이 중요한 이유 중 하나는
+    id속성을 통해 라벨과 input 박스를 연결 시 라벨의 텍스트 문자를 클릭하더라도
+    해당 input 박스의 체크박스에 작동이 된다!!(사용자 편의성!!)
+
+    체크박스값의 네임 속성!!! 엄청 중요
+    하나의 질문 내에 동일한 name값을 주는 이유는
+    하나의 질문 내에서 선택할 수 있는 옵션들이라는 뜻
+    후에 자바스크립트를 이용하여 값을 받아올 때 어떤 질문에서 받아왔는지를 알 수 있는 중요한 정보
+ -->
+    <h4>당신이 배우고 싶은 언어는?(다중 선택 가능)</h4>
+    <div>
+      <input type="checkbox" name="chk_lang" id="ch_html" />
+      <label for="ch_html">HTML</label>
+      <input type="checkbox" name="chk_lang" id="ch_css" />
+      <label for="ch_css">CSS</label>
+      <input type="checkbox" name="chk_lang" id="ch_js" />
+      <label for="ch_js">Javascript</label>
+    </div>
+
+    <!--
+        하나만 선택 시 radio 속성값 이용!!
+
+        radio이용 시 name이 중요한 이유는
+        name으로 묶어주지 않으면 다른 질문의 선택지라고 인식하여
+        하나의 질문에 여러개의 선택이 가능해 진다!!!
+    
+      -->
+    <h4>당신이 배우고 싶은 언어는?(하나만 선택 가능)</h4>
+    <div>
+      <input type="radio" name="rdo_lang" id="rdo_html" />
+      <label for="rdo_html">HTML</label>
+      <input type="radio" name="rdo_lang" id="rdo_css" />
+      <label for="rdo_css">CSS</label>
+      <input type="radio" name="rdo_lang" id="rdo_js" />
+      <label for="rdo_js">Javascript</label>
+    </div>
+
+    <div>
+      <label for="favo_col">가장 좋아하는 색상은?</label>
+      <input type="color" id="favo_col" />
+    </div>
+    <div>
+      <label for="borndate">태어난 날짜는?</label>
+      <input type="date" id="borndate" />
+    </div>
+    <div>
+      <label for="arr_datetime">입국한 날짜/시간은?</label>
+      <input type="datetime-local" id="arr_datetime" />
+    </div>
+
+    <!--
+        email 속성값 사용 시 보통 저장 버튼을 함께 사용한다
+        그럴 때 버튼 태그의 submit 속성값을 사용해 주는데
+        이러한 요소들이 form태그 내에 함께 묶여 있으면
+        저장 버튼을 누를 시 이메일 형식인지 체크 후 이메일 형식이 아닌 경우
+        오류 메세지를 전달 해 준다
+
+        하지만, form 태그로 묶여있지 않은경우 이메일 형식인지 인식하지 못한다!!
+        (묶어주는게 중요하다)
+
+        ※ 버튼태그의 type submit : 해당 버튼을 감싸는 form 태그의 action 속성값에 지정된 주소로 
+                                      form의 모든 데이터를 전송해준다
+                                      즉 폼태그 없이 사용시 해당 기능도 사용할 수 없다.
+     -->
+    <div>
+      <form action="">
+        <label for="email2">이메일 주소는?</label>
+        <input type="email" id="email2" />
+        <button type="submit">저장</button>
+      </form>
+    </div>
+    <div>
+      <label for="email2">이메일 주소는?</label>
+      <input type="email" id="email2" />
+      <button type="submit">저장</button>
+    </div>
+
+    <div>
+      <label for="attachment">파일 첨부</label>
+      <input type="file" id="attachment" />
+    </div>
+
+    <!-- 사용자의 입력을 받기위한 용도가 아닌
+    개발자가 사용하기 위해서 쓰는 태그
+    
+    예를 들어 특정 값을 서버로 보내지는 버튼 클릭시 누가 보내는지의 value 속성을 통해 보내는 등의
+    특정 값을 같이 보내지는 기능 구현 시 사용-->
+    <div>
+      <input type="hidden" value="" />
+    </div>
+
+    <!-- 
+    링크 등의 역할을 하는 이미지 삽입
+    실무에서는 거의 대부분 쓰지 않는다
+    img태그를 쓴다 -->
+    <div>
+      <img src="./img/devlogo.jpg" alt="" style="width: 100px; height: auto" />
+      <input
+        type="image"
+        src="./img/devlogo.jpg"
+        style="width: 100px; height: auto"
+      />
+    </div>
+
+    <!-- 년/월만 선택 가능 -->
+    <div>
+      <label for="yearmonth">생년/년월</label>
+      <input type="month" id="yearmonth" />
+    </div>
+
+    <!-- 숫자를 입력받음 -->
+    <div>
+      <label for="">당신의 나이는?</label>
+      <input type="number" />
+    </div>
+
+    <div>
+      <label for="u_ps">비밀번호</label>
+      <input type="password" id="u_ps" />
+    </div>
+
+    <!-- input이 tel인 속성값도 form 태그로 묶으면 submit을 통해 버튼으로 형식을 체크할 수 있다
+    하지만 이메일의 경우는 전세계는 공통적이지만 나라마다 특정 형식이 있기 때문에
+    따로 지정해줘야한다. => 자바스크립트할 때 배운다(pattern) -->
+    <div>
+      <form action="">
+        <label for="phone">전화번호</label>
+        <input type="tel" id="phone" pattern="^010-\d{4}-\d{4}$" />
+        <button type="submit"></button>
+      </form>
+    </div>
+
+    <div>
+      <label for="general">일반문자</label>
+      <input type="text" id="general" />
+    </div>
+
+    <div>
+      <label for="cisitime">예약시간</label>
+      <input type="time" id="cisitime" />
+    </div>
+
+    <!-- url타입도 submit으로 체크 가능 -->
+    <div>
+      <form action="">
+        <label for="">블로그 주소는?</label>
+        <input type="url" />
+        <button type="submit">저장</button>
+      </form>
+    </div>
+    <!-- 1월 1일 부터 현재가 몇주차인지 보여준다 -->
+    <div>
+      <label for="weekplan">주간 계획</label>
+      <input type="week" id="weekplan" />
+    </div>
+
+    <!-- 입력과 동시에 취소버튼이 생겨 빠르게 지우고 다시 검색할 수 있다 -->
+    <div>
+      <label for="se">검색 조건</label>
+      <input type="search" id="se" />
+    </div>
+
+    <!-- 
+        스마트 폰이나 테블릿을 이용하여 웹 페이지 이용 시 해당 태그에 맞는 기능이 우선적으로 열리게된다
+        예를 들어 숫자를 넣어야하는 입력창에 text 타입을 사용 시 글자를 넣는 자판이 모바일에 뜨지만
+        number 타입을 사용 시 숫자 키보드가 우선적으로 뜨기 때문에 
+        사용자의 편의상 아주 중요하다
+
+        또한 tel 타입과 number타입의 차이는 tel 타입 사용 시 모바일에 숫자키패드와
+        부호키패드가 동시에 나오며
+        email 타입을 넣을 시 문자 숫자 그리고 @, . 기호도 동시에 나오게 된다!!
+
+
+        text 타입으로 검색창을 만들 시 검색키판이 없지만
+        search 타입으로 만들 시 취소 버튼과 검색 키판이 생긴다
+
+
+        => 웹사이트를 pc로 이용시에는 사용자의 불편함이 크게 없다고 하더라도
+         모바일 환경에서는 최적화된 기능으로 제공되기 때문에 어떤 타입을 사용하는지 정말 중요하다!!
+         모바일 환경 최우선!!
+     -->
+  </body>
+</html>

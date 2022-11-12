@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 그 외의 form 태그
+        1. select(box) : option태그를 항목으로 하여 여러 항목 중 하나를 드롭다운 형식을 선택할 수 있는 박스
+                          => 옵션이 굉장히 많을 때 사용한다(살고 있는 국가는?)
+                          => 만약 해당 기능을 radio 또는checkbox으로 만들면 많은 공간을 차지한다.
+                          => 결국, 항목이 작을 때는 select 태그를 작성할지 input의 rdio 속성으로 작성할지는
+                              사용자의 편의를 위해서라도 작성 코드가 많더라도 radio가 올바른 작성법이다
+                                현직 개발자들의 일부는 코드의 간소화, 단순화, 귀찮음 등등으로 select를 이용한 방법을 고집한다.
+                                (절대 좋지 못한 습관!!!!)
+
+            multiple속성 : 컨트롤 키를 누르고 여러개의 항목 선택 가능
+            => 웹 이용자는 절대 사용법을 모른다!!!!(쓰지마라!!!)
+
+        컨텐츠의 텍스트는 고유의 값이 아니므로 다양한 개발자가 참여시 또는 이용자를 위해 value라는 속성에 특정 고유값을 넣어준다
+        서울의 지역번호인 02를 value 값으로 가져간다.
+     -->
+    <label for="">살고 있는 지역은?</label>
+    <select name="" id="">
+      <option value="02">서울</option>
+      <option value="051">부산</option>
+      <option value="064">제주</option>
+    </select>
+    <br />
+    <select name="" id="" multiple>
+      <option value="02">서울</option>
+      <option value="051">부산</option>
+      <option value="064">제주</option>
+    </select>
+    <br />
+    <select name="" id="">
+      <option value="">남자</option>
+      <option value="">여자</option>
+    </select>
+    <br />
+    <div>
+      <input type="radio" name="sex_1" id="male" />
+      <label for="male">남자</label>
+      <input type="radio" name="sex_1" id="female" />
+      <label for="female">여자</label>
+    </div>
+
+    <!-- 
+    textarea : 여러줄의 텍스트를 입력받기 위한 태그
+        rows 속성 : 정해진 줄 수 만큼 보이게 크기 설정
+        clos 속성 : 알파벳 기준 수 제한
+        => 알파벳 기준이라 불편함이 있어 실사용에는 
+        style 속성을 이용해 width로 너비 단위로 설정한다
+
+ -->
+    <div>
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+      <textarea name="" id="" width="100px" rows="10"></textarea>
+    </div>
+
+    <!-- 
+        fieldset : 관련된 정보를 묶어서 작성할 수 있는 폼으로
+             fieldset 태그 내부에 legend 태그로 폼 제목을 적어주고
+             div 태그를 형성하여 컨텐츠를 담을 수 있다.
+     -->
+    <div>
+      <fieldset>
+        <legend>개인정보</legend>
+        <div>
+          <label for="name">이름</label>
+          <input type="text" name="" id="name" />
+        </div>
+        <div>
+          <label for="tel">연락처</label>
+          <input type="tel" name="" id="tel" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>학력정보</legend>
+        <div>
+          <label for="uni">대학교</label>
+          <input type="text" name="" id="uni" />
+        </div>
+        <div>
+          <label for="year">졸업년도</label>
+          <input type="text" name="" id="year" />
+        </div>
+      </fieldset>
+    </div>
+
+    <!-- 
+        datalist : select 기능을 가진 input박스 
+                         select와의 차이점은
+                select는 클릭하여 해당 항목을 선택하는 기능에 한하지만
+                datalist는 select 기능을 포함하며 또한, 찾고자 하는 항목의
+                일부 글자를 입력하면 해당 글자가 포함된 리스트만
+                볼 수 있는 기능이 있다.
+                => 국가 항목 선택 시 유용한 기능!!
+
+                1. datalist태그를 만들어 준 후 내부에 option 태그를 만들어 항목을 만들어준다
+                2. input 태그를 datalist 태그와 동등한 위치에 생성해 준다.
+                3. datalist에는 id속성을 input 태그에는 list 속성을 부여하여 각 속성값을 같게 만들어준다
+                ※value값는 후에 자바스크립트를 이용 시 필요
+
+                단점!!
+                항목을 선택 후 사용자가 일부 글자를 지울 수 있다.
+                => 그래서, 자바스크립트를 통해 전달해준 데이터가 맞는 값인가를 확인하는 코드가 필요하다
+    
+    
+    -->
+    <div>
+      <input list="browsers" id="browser1" />
+      <datalist id="browsers">
+        <option value="in">인터넷 익스플로러</option>
+        <option value="fx">firefox</option>
+        <option value="chrome">chrome</option>
+        <option value="opera">opera</option>
+        <option value="safari">safari</option>
+      </datalist>
+    </div>
+
+    <!-- 
+    만약 한 페이지에 동일한 값(위의 브라우저)을 여러 곳에서 받아야하는 상황일 때  
+    input 태그를 만들어 동일한 list 값을 주면 어디에 위치해 있든 동일한 항목을 사용할 수 있다
+    (select 박스는 해당 기능이 없다!!)
+
+    실무 경험 => 테이블로 되어있는 곳에서 각 행마다 제품을 고르고 갯수를 고르는 
+                 기능!!(제품 항목은 동일하기때문에 해당 기능 사용)
+-->
+    <div>
+      <input list="browsers" id="browser2" />
+    </div>
+  </body>
+</html>
